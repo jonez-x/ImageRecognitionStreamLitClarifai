@@ -82,7 +82,8 @@ def tab2():
 
         faces = face_cascade.detectMultiScale(img_gray, 1.3, 5)
         eyes = eyeCascade.detectMultiScale(img_gray)
-
+        for (x, y, w, h) in faces:
+            img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
         for (ex, ey, ew, eh) in eyes:
             img = cv2.rectangle(img, (ex, ey), (ex + ew, ey + eh), (255, 0, 0), 3)
